@@ -1,0 +1,116 @@
+body{
+    background-color: lightslategray;
+}
+
+.header{
+    border: solid 1px;
+    background-color: lightblue;
+    border-radius: 1em;
+}
+
+.bName{
+    font-family: 'Impact';
+    color:black;
+    font-size:50px;
+    text-align: center;
+}
+
+.pizzaset{
+    display:flex;
+    justify-content: center;
+
+}
+.pizzaset1{
+    border-radius: 50%; 
+}
+
+.slogan{
+    font-style: italic;
+    font-size: 25px;
+    color: rgb(109, 96, 20);
+    display: flex;
+    justify-content: center;
+}
+
+.firstclick{
+    display:flex;
+    justify-content: end;
+}
+
+table, th, td {
+    border: 2px solid black;
+    width:25em;
+    text-align: center;
+    padding: 2px;
+    border-collapse: collapse;
+}
+.cart-box{
+    display:flex;
+    justify-content: end;
+}
+
+.message{
+    background-color: yellowgreen;
+}
+
+@media(min-width: 760px) {
+    .pizzas{
+    display: flex;
+    }
+}
+
+.small_pizza {
+    flex: 1;
+    border: 1px solid;
+    padding: 1em;
+    margin: 1em;
+    border-radius: 1em;
+    background-color: yellow;
+    text-align: center;
+}
+
+.medium_pizza {
+    flex: 1;
+    border: 1px solid;
+    padding: 1em;
+    margin: 1em;
+    border-radius: 1em;
+    background-color: orange;
+    text-align: center;
+}
+
+.large_pizza {
+    flex: 1;
+    border: 1px solid;
+    padding: 1em;
+    margin: 1em;
+    border-radius: 1em;
+    background-color: red;
+    text-align: center;
+}
+
+.footer{
+    background-color: brown;
+    border: 1px solid;
+    border-radius: 1em;
+    padding: 0.5em;
+    margin: 0.5em;
+}
+
+@media(min-width: 760px) {
+    .footer{
+    display: flex;
+    }
+}
+
+.details{
+    flex: 1;
+    padding: 1em;
+    margin: 1em;
+
+}
+.hours{
+    flex: 1;
+    padding: 1em;
+    margin: 1em;
+}
