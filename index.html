@@ -21,7 +21,7 @@
         LargePizzaQty:0,  
         payNow: false,
         paymentAmount: 0,
-        paymentMessege: '',
+        paymentMessage: '',
 
         AddSmallPizza(){
             this.SmallPizzaTotal += 57.00 ;
@@ -63,17 +63,18 @@
             return this.SmallPizzaQty + this.MediumPizzaQty + this.LargePizzaQty 
         },
         dopayment(){
-            if (!this.paymentAmount){
+            if(!this.paymentAmount){
                 this.paymentMessage = 'No amount entered!'
             }
-            if(this.paymentAmount >= this.TotalCost()){
-                this.paymentMessege = 'Enjoy your pizza!'
+            else if(this.paymentAmount >= this.TotalCost()){
+                this.paymentMessage = 'Enjoy your pizza(s)!'
                 setTimeout(() => {
-                    this.clearCart()
                     this.payNow = false;
+                    this.showCart= false;
+                    this.clearCart()
                    }, 5000)
             }else{
-                this.paymentMessege ='Sorry - that is not enough money!'
+                this.paymentMessage ='Sorry - that is not enough money!'
             }
         },
         clearCart()  {
@@ -115,14 +116,13 @@
                 <div>
                     <table>
                         
-                            <div class="carttop">
-                            <h2>Pizzas in Cart </h2> 
-                            <img src="images/cart.png" width="45" alt="">
+                            <div class="aa">
+                                <h2>Cart</h2><img src="images/cart.png" width="30" alt="">
                             </div>
-                        
+                           
                         <tr x-show="SmallPizzaQty>0">
                             <td>
-                                <b>Small Pizza</b>
+                                Small Pizza
                             </td>
                             <td>
                                 <span x-text="SmallPizzaQty"></span>
@@ -135,7 +135,7 @@
                         </tr>
                         <tr x-show="MediumPizzaQty>0">
                             <td>
-                                <b>Medium Pizza</b>
+                                Medium Pizza
                             </td>
                             <td>
                                 <span x-text="MediumPizzaQty"></span>
@@ -148,27 +148,27 @@
                         </tr>
                         <tr x-show="LargePizzaQty>0">
                             <td>
-                               <b>Large Pizza</b> 
+                                Large Pizza
                             </td>
                             <td>
                                 <span x-text="LargePizzaQty"></span>
-                                <button x-show="LargePizzaQty>0" x-on:click="AddLargePizza">+</button>
-                                <button x-show="LargePizzaQty>0" x-on:click="SubtractLargePizza">-</button>
+                                <button x-show="LargePizzaQty>0" x-on:click="AddLargePizza" class="btn6">+</button>
+                                <button x-show="LargePizzaQty>0" x-on:click="SubtractLargePizza" class="btn7">-</button>
                             </td>
                             <td>
                                 R<span x-text="LargePizzaTotal.toFixed(2)"></span>
                             </td>
-                        </tr>  
+                        </tr>
                         <tr>
-                            <td colspan="2"><b>Total Amout to Pay</b></td>
+                            <td colspan="2"><b>Total Amount to Pay:</b></td>
                             <td>
                                 R<span x-text="TotalCost().toFixed(2)"></span>
                             </td>
                         </tr>
-                        <tr>
+                        <tr x-show="totalQty()>0">
                             <td colspan="2">
                                 <div x-show="payNow">
-                                    <div class="message" x-text="paymentMessege">Message...</div>
+                                    <div class="message" x-text="paymentMessage">Message....</div>
                                     <div>
                                         <div>
                                             <label for="">Pay Amount</label>
@@ -183,9 +183,9 @@
                                 </div>
                                 
                                 <td>
-                                    <button x-show="!payNow"x-on:click="payNow=true" class="btn">
-                                        <img src="images/cart.png" width="20" alt="">
-                                    Check Out</button>
+                                    <button x-show="!payNow"x-on:click="payNow=true" class="btn5">
+                                        <img src="images/cart.png" width="20" alt="">Check out
+                                    </button>
                                 </td>
                             </td>
                         </tr>
